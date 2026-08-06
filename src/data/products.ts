@@ -23,7 +23,7 @@ export const produtos: Produto[] = [
   {
     "id": 1,
     "nome": "Tela iPhone 6G",
-    "preco": "R$ 60,00",
+    "preco": "R$ 60,05",
     "descricao": "Principal IPHONE",
     "categoria": "Telas iPhone"
   },
