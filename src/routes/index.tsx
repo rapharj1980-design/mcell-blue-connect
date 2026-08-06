@@ -15,17 +15,17 @@ import { playSound } from "@/lib/ui-sound";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NewConnection — Catálogo de Eletrônicos no Centro do Rio" },
+      { title: "MCell Digital — Tabela de Telas, Baterias e Conectores" },
       {
         name: "description",
         content:
-          "Catálogo NewConnection: fones, caixas de som, carregadores, cabos e acessórios eletrônicos com preços de atacado. Peça pelo WhatsApp (21) 99088-0131.",
+          "Tabela de preços MCell Digital: telas de iPhone, Samsung, Motorola e Xiaomi, baterias, conectores de carga e tampas. Peça pelo WhatsApp (21) 97966-0549.",
       },
-      { property: "og:title", content: "NewConnection — Catálogo de Eletrônicos no Centro do Rio" },
+      { property: "og:title", content: "MCell Digital — Tabela de Telas, Baterias e Conectores" },
       {
         property: "og:description",
         content:
-          "Catálogo NewConnection: fones, caixas de som, carregadores, cabos e acessórios eletrônicos com preços de atacado. Peça pelo WhatsApp (21) 99088-0131.",
+          "Tabela de preços MCell Digital: telas de iPhone, Samsung, Motorola e Xiaomi, baterias, conectores de carga e tampas. Peça pelo WhatsApp (21) 97966-0549.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -124,8 +124,8 @@ function HeaderLogo() {
           transformStyle: "preserve-3d",
         }}
       >
-        <span className="text-foreground">New</span>
-        <span className="text-gradient-brand">Connection</span>
+        <span className="text-foreground">M</span>
+        <span className="text-gradient-brand">Cell</span>
       </a>
     </div>
   );
@@ -154,7 +154,7 @@ function Catalogo() {
           <span className="inline-flex items-center gap-2">
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" /> {ENDERECO}
           </span>
-          <a href={waLink("Olá! Vim pelo catálogo NewConnection.")} className="inline-flex items-center gap-2 font-semibold">
+          <a href={waLink("Olá! Vim pela tabela MCell Digital.")} className="inline-flex items-center gap-2 font-semibold">
             <Phone className="h-3.5 w-3.5" aria-hidden="true" /> WhatsApp {WHATSAPP_EXIBICAO}
           </a>
         </div>
@@ -191,7 +191,7 @@ function Catalogo() {
       <section id="topo" className="relative overflow-hidden bg-gradient-hero text-deep-foreground">
         <img
           src={heroImg}
-          alt="Acessórios eletrônicos da NewConnection sobre fundo azul"
+          alt="Peças de reposição para celulares da MCell Digital"
           width={1600}
           height={1000}
           className="absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-screen"
@@ -199,18 +199,18 @@ function Catalogo() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 py-20 md:grid-cols-[1.618fr_1fr] md:py-28">
           <div>
             <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest">
-              Centro do Rio · Atacado e Varejo
+              Centro do Rio · Atacado para assistências
             </span>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] sm:text-5xl md:text-6xl">
-              Tecnologia que conecta você ao melhor preço
+              Peças de reposição com preço de atacado
             </h1>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-deep-foreground/80 sm:text-lg">
-              Fones, caixas de som, carregadores, cabos e acessórios com qualidade garantida.
-              Escolha no catálogo e finalize o pedido direto pelo WhatsApp.
+              Telas, baterias, conectores de carga e tampas para iPhone, Samsung, Motorola,
+              Xiaomi e LG. Monte seu pedido na tabela e finalize direto pelo WhatsApp.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={waLink("Olá NewConnection! Quero fazer um pedido pelo catálogo.")}
+                href={waLink("Olá MCell! Quero fazer um pedido pela tabela.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-whatsapp px-6 py-3.5 font-semibold text-whatsapp-foreground shadow-glow transition-transform hover:-translate-y-0.5"
@@ -222,12 +222,12 @@ function Catalogo() {
                 href="#catalogo"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-6 py-3.5 font-semibold backdrop-blur transition-colors hover:bg-white/20"
               >
-                Ver catálogo completo
+                Ver tabela completa
               </a>
             </div>
             <dl className="mt-10 flex flex-wrap gap-8">
               <div>
-                <dt className="text-xs uppercase tracking-wider text-deep-foreground/70">Produtos</dt>
+                <dt className="text-xs uppercase tracking-wider text-deep-foreground/70">Itens na tabela</dt>
                 <dd className="font-display text-2xl font-bold">{produtos.length}+</dd>
               </div>
               <div>
@@ -236,7 +236,7 @@ function Catalogo() {
               </div>
               <div>
                 <dt className="text-xs uppercase tracking-wider text-deep-foreground/70">A partir de</dt>
-                <dd className="font-display text-2xl font-bold">R$ 9,00</dd>
+                <dd className="font-display text-2xl font-bold">R$ 20,00</dd>
               </div>
             </dl>
           </div>
@@ -265,10 +265,10 @@ function Catalogo() {
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="font-display text-3xl font-extrabold text-foreground sm:text-4xl">
-              Catálogo <span className="text-gradient-brand">completo</span>
+              Tabela <span className="text-gradient-brand">de preços</span>
             </h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
-              Navegue pelas seções e peça o que quiser diretamente pelo WhatsApp.
+              Navegue pelas seções, adicione as peças ao pedido e envie pelo WhatsApp.
             </p>
           </div>
           <div className="relative w-full md:w-80">
@@ -277,8 +277,8 @@ function Catalogo() {
               type="search"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
-              placeholder="Buscar produto..."
-              aria-label="Buscar produto no catálogo"
+              placeholder="Buscar modelo, marca ou peça..."
+              aria-label="Buscar peça na tabela"
               className="w-full rounded-xl border border-input bg-card py-3 pl-10 pr-4 text-sm text-foreground outline-none transition-shadow placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
             />
           </div>
@@ -286,7 +286,7 @@ function Catalogo() {
 
         {secoes.length === 0 && (
           <p className="mt-16 text-center text-muted-foreground">
-            Nenhum produto encontrado. Fale conosco no WhatsApp {WHATSAPP_EXIBICAO}.
+            Nenhuma peça encontrada. Fale conosco no WhatsApp {WHATSAPP_EXIBICAO}.
           </p>
         )}
 
@@ -311,12 +311,12 @@ function Catalogo() {
       {/* CTA final */}
       <section className="bg-gradient-hero text-deep-foreground">
         <div className="mx-auto max-w-4xl px-4 py-16 text-center">
-          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Não achou o que procura?</h2>
+          <h2 className="font-display text-3xl font-extrabold sm:text-4xl">Não achou o modelo?</h2>
           <p className="mx-auto mt-3 max-w-xl text-deep-foreground/80">
-            Chame no WhatsApp: temos novidades chegando toda semana e condições especiais para revenda.
+            Chame no WhatsApp: trabalhamos com encomenda e temos condições especiais para assistências técnicas.
           </p>
           <a
-            href={waLink("Olá NewConnection! Estou procurando um produto específico.")}
+            href={waLink("Olá MCell! Estou procurando uma peça específica.")}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex items-center gap-2 rounded-xl bg-whatsapp px-7 py-4 font-semibold text-whatsapp-foreground shadow-glow transition-transform hover:-translate-y-0.5"
@@ -332,11 +332,11 @@ function Catalogo() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:grid-cols-3">
           <div>
             <p className="font-display text-xl font-extrabold">
-              <span className="text-foreground">New</span>
-              <span className="text-gradient-brand">Connection</span>
+              <span className="text-foreground">M</span>
+              <span className="text-gradient-brand">Cell Digital</span>
             </p>
             <p className="mt-3 text-sm text-muted-foreground">
-              Eletrônicos e acessórios para celular, informática e casa. Atacado e varejo no Centro do Rio.
+              Telas, baterias, conectores e tampas para celulares e tablets. Atacado e varejo no Centro do Rio.
             </p>
           </div>
           <div>
@@ -349,7 +349,7 @@ function Catalogo() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wide text-foreground">Contato</h3>
             <a
-              href={waLink("Olá NewConnection!")}
+              href={waLink("Olá MCell Digital!")}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
@@ -367,7 +367,7 @@ function Catalogo() {
       {/* Botões flutuantes */}
       <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
         <a
-          href={waLink("Olá NewConnection! Quero tirar uma dúvida.")}
+          href={waLink("Olá MCell! Quero tirar uma dúvida.")}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Fale conosco pelo WhatsApp"
