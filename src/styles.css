@@ -329,3 +329,55 @@
   box-shadow: 0 8px 18px oklch(0 0 0 / 0.22);
 }
 
+
+/* Navegação de categorias (lista horizontal) */
+.nav-track {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.4rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) color-mix(in oklab, var(--muted) 80%, white);
+  cursor: grab;
+}
+@media (min-width: 768px) {
+  .nav-track {
+    padding-inline: 1.75rem;
+  }
+}
+.nav-track.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
+}
+.nav-track::-webkit-scrollbar {
+  height: 6px;
+}
+.nav-track::-webkit-scrollbar-track {
+  background: color-mix(in oklab, var(--muted) 80%, white);
+  border-radius: 9999px;
+}
+.nav-track::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--primary) 75%, transparent);
+  border-radius: 9999px;
+}
+.nav-track::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+.nav-track > * {
+  flex: 0 0 auto;
+}
+.nav-arrow {
+  top: 42%;
+  height: 1.9rem;
+  width: 1.9rem;
+}
+.nav-arrow.carousel-arrow-left {
+  left: -0.25rem;
+}
+.nav-arrow.carousel-arrow-right {
+  right: -0.25rem;
+}
