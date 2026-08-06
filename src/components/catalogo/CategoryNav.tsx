@@ -6,7 +6,7 @@ export function CategoryNav({
   categorias,
   slug,
 }: {
-  categorias: string[];
+  categorias: readonly string[];
   slug: (s: string) => string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
