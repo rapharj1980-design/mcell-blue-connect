@@ -1,12 +1,16 @@
 import { Minus, Plus, ShoppingCart, Trash2, MessageCircle } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useCart, formatarBRL, precoNumero } from "./CartContext";
 import { waLink } from "@/data/contato";
 import { imagensPorProduto } from "@/data/imagens";
 import { playSound } from "@/lib/ui-sound";
+import { registrarPedido } from "@/lib/pedidos.functions";
 
 export function CartDrawer() {
   const { itens, aberto, setAberto, alterarQtd, remover, limpar, total, totalItens } = useCart();
+  const enviarPedido = useServerFn(registrarPedido);
+
 
   const mensagem = () => {
     const linhas = itens.map(
