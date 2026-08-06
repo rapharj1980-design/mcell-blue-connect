@@ -166,18 +166,8 @@ function Catalogo() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 py-3">
           <HeaderLogo />
 
-          <nav className="order-3 flex w-full gap-2 overflow-x-auto pb-1 text-sm md:order-2 md:w-auto md:flex-1 md:justify-center md:overflow-visible md:pb-0">
-            {categorias.map((c) => (
-              <a
-                key={c}
-                href={`#${slug(c)}`}
-                onClick={() => playSound("tap")}
-                className="whitespace-nowrap rounded-xl border border-border bg-gradient-soft px-3 py-1.5 font-semibold text-foreground shadow-card transition-all hover:-translate-y-0.5 hover:bg-gradient-brand hover:text-primary-foreground hover:shadow-glow"
-              >
-                {c}
-              </a>
-            ))}
-          </nav>
+          <CategoryNav categorias={categorias} slug={slug} />
+
 
           <div className="order-2 ml-auto flex items-center gap-2 md:order-3">
             <SoundToggle />
