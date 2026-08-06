@@ -13,7 +13,7 @@ export function CartDrawer() {
       (i) => `• ${i.qtd}x ${i.produto.nome} — ${formatarBRL(precoNumero(i.produto.preco) * i.qtd)}`,
     );
     return [
-      "Olá NewConnection! Quero finalizar este pedido:",
+      "Olá MCell Digital! Quero finalizar este pedido:",
       "",
       ...linhas,
       "",
