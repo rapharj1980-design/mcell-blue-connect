@@ -261,11 +261,30 @@
   overflow-x: auto;
   overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: 0.5rem;
-  scrollbar-width: none;
+  padding-bottom: 0.75rem;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) color-mix(in oklab, var(--muted) 80%, white);
+  cursor: grab;
+}
+.carousel-track.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
 }
 .carousel-track::-webkit-scrollbar {
-  display: none;
+  height: 8px;
+}
+.carousel-track::-webkit-scrollbar-track {
+  background: color-mix(in oklab, var(--muted) 80%, white);
+  border-radius: 9999px;
+}
+.carousel-track::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--primary) 75%, transparent);
+  border-radius: 9999px;
+}
+.carousel-track::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
 .carousel-track > * {
   flex: 0 0 auto;
@@ -278,24 +297,35 @@
 }
 
 .carousel-arrow {
-  display: inline-flex;
+  position: absolute;
+  top: 45%;
+  z-index: 10;
+  display: none;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 9999px;
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--foreground);
-  box-shadow: 0 2px 6px oklch(0 0 0 / 0.12);
+  box-shadow: 0 4px 12px oklch(0 0 0 / 0.16);
   transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
   cursor: pointer;
 }
+@media (min-width: 768px) {
+  .carousel-arrow {
+    display: inline-flex;
+  }
+}
+.carousel-arrow-left {
+  left: -0.5rem;
+}
+.carousel-arrow-right {
+  right: -0.5rem;
+}
 .carousel-arrow:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 14px oklch(0 0 0 / 0.18);
+  box-shadow: 0 8px 18px oklch(0 0 0 / 0.22);
 }
-.carousel-arrow:disabled {
-  opacity: 0.35;
-  cursor: default;
-}
+
