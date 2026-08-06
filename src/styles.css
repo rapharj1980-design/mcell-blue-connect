@@ -259,8 +259,7 @@
   display: flex;
   gap: 1.25rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
+  overscroll-behavior-x: contain;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 0.5rem;
   scrollbar-width: none;
@@ -269,7 +268,6 @@
   display: none;
 }
 .carousel-track > * {
-  scroll-snap-align: start;
   flex: 0 0 auto;
   width: 17rem;
 }
