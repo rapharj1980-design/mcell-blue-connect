@@ -5,7 +5,7 @@ import { MapPin, MessageCircle, Phone, Search, ShieldCheck, ShoppingCart, Truck,
 import heroImg from "@/assets/hero.jpg";
 import { produtos, categorias } from "@/data/products";
 import { EMPRESA, ENDERECO, WHATSAPP_EXIBICAO, waLink } from "@/data/contato";
-import { ProductCard } from "@/components/catalogo/ProductCard";
+import { CategoryCarousel } from "@/components/catalogo/CategoryCarousel";
 import { CartProvider, useCart } from "@/components/catalogo/CartContext";
 import { CartDrawer } from "@/components/catalogo/CartDrawer";
 import { SoundToggle } from "@/components/catalogo/SoundToggle";
@@ -300,11 +300,7 @@ function Catalogo() {
               </span>
               <span className="h-px flex-1 bg-gradient-brand opacity-40" />
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {itens.map((p) => (
-                <ProductCard key={p.id} produto={p} />
-              ))}
-            </div>
+            <CategoryCarousel itens={itens} />
           </section>
         ))}
       </main>

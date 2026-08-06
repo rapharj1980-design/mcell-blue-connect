@@ -253,3 +253,51 @@
   color: var(--foreground);
   text-shadow: 0 1px 0 oklch(1 0 0 / 0.6);
 }
+
+/* Carousel horizontal */
+.carousel-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+.carousel-track > * {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 17rem;
+}
+@media (min-width: 640px) {
+  .carousel-track > * {
+    width: 19rem;
+  }
+}
+
+.carousel-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.12);
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+  cursor: pointer;
+}
+.carousel-arrow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px oklch(0 0 0 / 0.18);
+}
+.carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
