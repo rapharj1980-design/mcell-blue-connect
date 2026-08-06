@@ -43,10 +43,11 @@ const slug = (s: string) =>
     .replace(/^-|-$/g, "");
 
 const diferenciais = [
-  { icon: Zap, titulo: "Entrega rápida", texto: "Retirada na loja ou envio no mesmo dia para todo o Rio." },
-  { icon: ShieldCheck, titulo: "Produtos garantidos", texto: "Marcas conhecidas e garantia contra defeitos de fábrica." },
-  { icon: Truck, titulo: "Atacado e varejo", texto: "Preços especiais para revendedores e compras em quantidade." },
+  { icon: Zap, titulo: "Retirada imediata", texto: "Peças em estoque para retirada na loja, no Centro do Rio." },
+  { icon: ShieldCheck, titulo: "Garantia na troca", texto: "Telas e baterias testadas, com garantia contra defeito de fábrica." },
+  { icon: Truck, titulo: "Preço de assistência", texto: "Condições especiais para assistências técnicas e compras em volume." },
 ];
+
 
 function Index() {
   return (
