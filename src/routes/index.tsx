@@ -300,11 +300,7 @@ function Catalogo() {
               </span>
               <span className="h-px flex-1 bg-gradient-brand opacity-40" />
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {itens.map((p) => (
-                <ProductCard key={p.id} produto={p} />
-              ))}
-            </div>
+            <CategoryCarousel itens={itens} />
           </section>
         ))}
       </main>
