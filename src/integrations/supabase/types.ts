@@ -14,7 +14,83 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      pedido_respostas: {
+        Row: {
+          atendente: string
+          created_at: string
+          id: string
+          pedido_id: string
+          resposta: string
+          telefone: string
+        }
+        Insert: {
+          atendente: string
+          created_at?: string
+          id?: string
+          pedido_id: string
+          resposta: string
+          telefone: string
+        }
+        Update: {
+          atendente?: string
+          created_at?: string
+          id?: string
+          pedido_id?: string
+          resposta?: string
+          telefone?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pedido_respostas_pedido_id_fkey"
+            columns: ["pedido_id"]
+            isOneToOne: false
+            referencedRelation: "pedidos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pedidos: {
+        Row: {
+          aceito_em: string | null
+          aceito_por: string | null
+          alertas_enviados: number
+          cliente: string | null
+          created_at: string
+          id: string
+          itens: Json
+          resumo: string
+          status: string
+          total: number
+          ultimo_alerta_em: string | null
+        }
+        Insert: {
+          aceito_em?: string | null
+          aceito_por?: string | null
+          alertas_enviados?: number
+          cliente?: string | null
+          created_at?: string
+          id?: string
+          itens?: Json
+          resumo: string
+          status?: string
+          total?: number
+          ultimo_alerta_em?: string | null
+        }
+        Update: {
+          aceito_em?: string | null
+          aceito_por?: string | null
+          alertas_enviados?: number
+          cliente?: string | null
+          created_at?: string
+          id?: string
+          itens?: Json
+          resumo?: string
+          status?: string
+          total?: number
+          ultimo_alerta_em?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
