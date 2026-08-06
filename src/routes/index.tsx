@@ -5,7 +5,7 @@ import { MapPin, MessageCircle, Phone, Search, ShieldCheck, ShoppingCart, Truck,
 import heroImg from "@/assets/hero.jpg";
 import { produtos, categorias } from "@/data/products";
 import { EMPRESA, ENDERECO, WHATSAPP_EXIBICAO, waLink } from "@/data/contato";
-import { ProductCard } from "@/components/catalogo/ProductCard";
+import { CategoryCarousel } from "@/components/catalogo/CategoryCarousel";
 import { CartProvider, useCart } from "@/components/catalogo/CartContext";
 import { CartDrawer } from "@/components/catalogo/CartDrawer";
 import { SoundToggle } from "@/components/catalogo/SoundToggle";
