@@ -1,12 +1,16 @@
 import { Minus, Plus, ShoppingCart, Trash2, MessageCircle } from "lucide-react";
+import { useServerFn } from "@tanstack/react-start";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { useCart, formatarBRL, precoNumero } from "./CartContext";
 import { waLink } from "@/data/contato";
 import { imagensPorProduto } from "@/data/imagens";
 import { playSound } from "@/lib/ui-sound";
+import { registrarPedido } from "@/lib/pedidos.functions";
 
 export function CartDrawer() {
   const { itens, aberto, setAberto, alterarQtd, remover, limpar, total, totalItens } = useCart();
+  const enviarPedido = useServerFn(registrarPedido);
+
 
   const mensagem = () => {
     const linhas = itens.map(
@@ -116,7 +120,19 @@ export function CartDrawer() {
                   return;
                 }
                 playSound("chime");
+                void enviarPedido({
+                  data: {
+                    resumo: mensagem(),
+                    total,
+                    itens: itens.map((i) => ({
+                      nome: i.produto.nome,
+                      qtd: i.qtd,
+                      preco: precoNumero(i.produto.preco),
+                    })),
+                  },
+                }).catch((err) => console.error("[pedido] alerta interno falhou", err));
               }}
+
               className={`btn-3d btn-3d-whatsapp inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-semibold text-whatsapp-foreground ${
                 itens.length === 0 ? "pointer-events-none opacity-50" : ""
               }`}

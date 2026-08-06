@@ -10,33 +10,58 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicWhatsappRouteImport } from './routes/api/public/whatsapp'
+import { Route as ApiPublicHooksReenviarAlertasRouteImport } from './routes/api/public/hooks/reenviar-alertas'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicWhatsappRoute = ApiPublicWhatsappRouteImport.update({
+  id: '/api/public/whatsapp',
+  path: '/api/public/whatsapp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicHooksReenviarAlertasRoute =
+  ApiPublicHooksReenviarAlertasRouteImport.update({
+    id: '/api/public/hooks/reenviar-alertas',
+    path: '/api/public/hooks/reenviar-alertas',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/api/public/whatsapp': typeof ApiPublicWhatsappRoute
+  '/api/public/hooks/reenviar-alertas': typeof ApiPublicHooksReenviarAlertasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/api/public/whatsapp': typeof ApiPublicWhatsappRoute
+  '/api/public/hooks/reenviar-alertas': typeof ApiPublicHooksReenviarAlertasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/api/public/whatsapp': typeof ApiPublicWhatsappRoute
+  '/api/public/hooks/reenviar-alertas': typeof ApiPublicHooksReenviarAlertasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/api/public/whatsapp' | '/api/public/hooks/reenviar-alertas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/api/public/whatsapp' | '/api/public/hooks/reenviar-alertas'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/whatsapp'
+    | '/api/public/hooks/reenviar-alertas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApiPublicWhatsappRoute: typeof ApiPublicWhatsappRoute
+  ApiPublicHooksReenviarAlertasRoute: typeof ApiPublicHooksReenviarAlertasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +73,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/whatsapp': {
+      id: '/api/public/whatsapp'
+      path: '/api/public/whatsapp'
+      fullPath: '/api/public/whatsapp'
+      preLoaderRoute: typeof ApiPublicWhatsappRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/hooks/reenviar-alertas': {
+      id: '/api/public/hooks/reenviar-alertas'
+      path: '/api/public/hooks/reenviar-alertas'
+      fullPath: '/api/public/hooks/reenviar-alertas'
+      preLoaderRoute: typeof ApiPublicHooksReenviarAlertasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApiPublicWhatsappRoute: ApiPublicWhatsappRoute,
+  ApiPublicHooksReenviarAlertasRoute: ApiPublicHooksReenviarAlertasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
