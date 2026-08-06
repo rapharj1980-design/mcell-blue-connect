@@ -6,6 +6,8 @@ import heroImg from "@/assets/hero.jpg";
 import { produtos, categorias } from "@/data/products";
 import { EMPRESA, ENDERECO, WHATSAPP_EXIBICAO, waLink } from "@/data/contato";
 import { CategoryCarousel } from "@/components/catalogo/CategoryCarousel";
+import { CategoryNav } from "@/components/catalogo/CategoryNav";
+
 import { CartProvider, useCart } from "@/components/catalogo/CartContext";
 import { CartDrawer } from "@/components/catalogo/CartDrawer";
 import { SoundToggle } from "@/components/catalogo/SoundToggle";
