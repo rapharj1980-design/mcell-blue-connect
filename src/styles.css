@@ -190,6 +190,105 @@
   color: transparent;
 }
 
+/* ---- Neumorfismo / Glassmorfismo ---- */
+@utility shadow-neu {
+  box-shadow: var(--shadow-neu);
+}
+@utility shadow-neu-sm {
+  box-shadow: var(--shadow-neu-sm);
+}
+@utility shadow-neu-inset {
+  box-shadow: var(--shadow-neu-inset);
+}
+@utility neu-card {
+  background-color: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-neu);
+  transition: box-shadow 220ms ease, transform 220ms ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 12px 12px 22px rgba(163, 177, 198, 0.45), -12px -12px 22px rgba(255, 255, 255, 0.95);
+  }
+}
+@utility neu-inset-field {
+  background-color: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-neu-inset);
+}
+@utility glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+@utility btn-neu {
+  position: relative;
+  border-radius: var(--radius);
+  color: var(--action-foreground);
+  background-image: linear-gradient(
+    145deg,
+    color-mix(in oklab, var(--btn-base, var(--action)) 88%, white) 0%,
+    var(--btn-base, var(--action)) 55%,
+    color-mix(in oklab, var(--btn-base, var(--action)) 82%, black) 100%
+  );
+  box-shadow:
+    6px 6px 14px rgba(163, 177, 198, 0.5),
+    -6px -6px 14px rgba(255, 255, 255, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: box-shadow 180ms ease, transform 120ms ease, filter 180ms ease;
+
+  &:hover {
+    filter: saturate(1.08);
+    box-shadow:
+      inset 4px 4px 10px color-mix(in oklab, var(--btn-base, var(--action)) 60%, black),
+      inset -4px -4px 10px color-mix(in oklab, var(--btn-base, var(--action)) 78%, white);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow:
+      inset 6px 6px 12px color-mix(in oklab, var(--btn-base, var(--action)) 55%, black),
+      inset -6px -6px 12px color-mix(in oklab, var(--btn-base, var(--action)) 80%, white);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+}
+@utility btn-neu-soft {
+  --btn-base: oklch(0.945 0.008 250);
+  color: var(--foreground);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+@utility btn-neu-whatsapp {
+  --btn-base: var(--whatsapp);
+  color: var(--whatsapp-foreground);
+}
+@utility price-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.4rem 1.1rem;
+  font-weight: 800;
+  color: var(--action);
+  background: var(--background);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: var(--shadow-neu-inset);
+}
+@keyframes pulso-icone {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+@utility icon-pulse-parent {
+  &:hover svg {
+    animation: pulso-icone 900ms ease-in-out infinite;
+  }
+}
+
 @layer base {
   body {
     font-family: var(--font-sans);
