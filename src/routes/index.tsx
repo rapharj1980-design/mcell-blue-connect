@@ -50,6 +50,12 @@ const diferenciais = [
   { icon: Truck, titulo: "Preço de assistência", texto: "Condições especiais para assistências técnicas e compras em volume." },
 ];
 
+const instrucoes = [
+  { icon: Search, passo: 1, texto: "Navegue pelas seções ou busque o modelo" },
+  { icon: ShoppingCart, passo: 2, texto: "Adicione as peças ao seu pedido" },
+  { icon: MessageCircle, passo: 3, texto: "Finalize direto pelo WhatsApp" },
+];
+
 
 function Index() {
   return (
@@ -70,12 +76,12 @@ function BotaoCarrinho({ className = "" }: { className?: string }) {
         setAberto(true);
       }}
       aria-label="Abrir pedido"
-      className={`btn-3d btn-3d-whatsapp relative inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-whatsapp-foreground ${className}`}
+      className={`btn-neu icon-pulse-parent relative inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold ${className}`}
     >
-      <ShoppingCart className="h-4 w-4" aria-hidden="true" />
-      Meu pedido
+      <ShoppingCart className="h-4 w-4 shrink-0" aria-hidden="true" />
+      <span className="leading-none">Meu pedido</span>
       {totalItens > 0 && (
-        <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground">
+        <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground shadow-neu-sm">
           {totalItens}
         </span>
       )}
@@ -117,10 +123,10 @@ function HeaderLogo() {
   }, []);
 
   return (
-    <div style={{ perspective: "1000px" }}>
+    <div style={{ perspective: "1000px" }} className="flex items-center">
       <a
         href="#topo"
-        className="block font-display text-xl font-extrabold tracking-tight transform-gpu"
+        className="block font-display text-2xl font-extrabold tracking-tight transform-gpu drop-shadow-[0_4px_8px_rgba(45,72,204,0.35)]"
         style={{
           transform: `rotateX(${giro}deg)`,
           transition: "transform 0.2s linear",
@@ -164,16 +170,16 @@ function Catalogo() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+      <header className="glass-panel sticky top-0 z-40 shadow-neu-sm">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 py-3">
           <HeaderLogo />
 
           <CategoryNav categorias={categorias} slug={slug} />
 
 
-          <div className="order-2 ml-auto flex items-center gap-2 md:order-3">
+          <div className="order-2 ml-auto flex items-center gap-2 self-center md:order-3">
             <SoundToggle />
-            <BotaoCarrinho />
+            <BotaoCarrinho className="hidden sm:inline-flex" />
           </div>
 
 
@@ -257,25 +263,36 @@ function Catalogo() {
       <main id="catalogo" className="mx-auto max-w-7xl px-4 py-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="font-display text-3xl font-extrabold text-foreground sm:text-4xl">
-              Tabela <span className="text-gradient-brand">de preços</span>
+            <h2 className="font-display text-4xl font-extrabold text-primary sm:text-5xl">
+              Tabela de preços
             </h2>
-            <p className="mt-2 max-w-2xl text-muted-foreground">
-              Navegue pelas seções, adicione as peças ao pedido e envie pelo WhatsApp.
-            </p>
+            <span className="mt-3 block h-1 w-40 rounded-full bg-gradient-brand opacity-80" />
           </div>
           <div className="relative w-full md:w-80">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" aria-hidden="true" />
             <input
               type="search"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               placeholder="Buscar modelo, marca ou peça..."
               aria-label="Buscar peça na tabela"
-              className="w-full rounded-xl border border-input bg-card py-3 pl-10 pr-4 text-sm text-foreground outline-none transition-shadow placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+              className="neu-inset-field w-full py-4 pl-12 pr-5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
             />
           </div>
         </div>
+
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          {instrucoes.map(({ icon: Icon, passo, texto }) => (
+            <li key={passo} className="neu-card flex items-center gap-3 p-4">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-neu-inset">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <p className="text-sm font-semibold text-foreground">
+                <span className="text-primary">{passo}.</span> {texto}
+              </p>
+            </li>
+          ))}
+        </ul>
 
         {secoes.length === 0 && (
           <p className="mt-16 text-center text-muted-foreground">
@@ -286,11 +303,11 @@ function Catalogo() {
         {secoes.map(({ cat, itens }) => (
           <section key={cat} id={slug(cat)} className="mt-16 scroll-mt-32">
             <div className="mb-6 flex items-center gap-4">
-              <h3 className="font-display text-2xl font-bold text-foreground">{cat}</h3>
-              <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+              <h3 className="font-display text-2xl font-bold text-primary">{cat}</h3>
+              <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground shadow-neu-sm">
                 {itens.length} itens
               </span>
-              <span className="h-px flex-1 bg-gradient-brand opacity-40" />
+              <span className="h-px flex-1 bg-border" />
             </div>
             <CategoryCarousel itens={itens} />
           </section>
@@ -354,17 +371,17 @@ function Catalogo() {
       </footer>
 
       {/* Botões flutuantes */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+      <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3">
         <a
           href={waLink("Olá MCell! Quero tirar uma dúvida.")}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Fale conosco pelo WhatsApp"
-          className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-glow transition-transform hover:scale-105"
+          className="btn-neu btn-neu-whatsapp icon-pulse-parent inline-flex h-12 w-12 items-center justify-center !rounded-full"
         >
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
         </a>
-        <BotaoCarrinho className="h-14 shadow-glow" />
+        <BotaoCarrinho className="h-16 !rounded-full px-6 text-base" />
       </div>
 
     </div>

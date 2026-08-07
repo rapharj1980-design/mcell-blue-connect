@@ -133,7 +133,7 @@ export function CartDrawer() {
                 }).catch((err) => console.error("[pedido] alerta interno falhou", err));
               }}
 
-              className={`btn-3d btn-3d-whatsapp inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-semibold text-whatsapp-foreground ${
+              className={`btn-neu btn-neu-whatsapp inline-flex items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-semibold text-whatsapp-foreground ${
                 itens.length === 0 ? "pointer-events-none opacity-50" : ""
               }`}
             >
@@ -147,7 +147,7 @@ export function CartDrawer() {
                   playSound("tap");
                   setAberto(false);
                 }}
-                className="btn-3d btn-3d-muted flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold text-foreground"
+                className="btn-neu btn-neu-soft flex-1 rounded-xl px-4 py-2.5 text-sm font-semibold text-foreground"
               >
                 Continuar comprando
               </button>
@@ -158,7 +158,7 @@ export function CartDrawer() {
                     playSound("tap");
                     limpar();
                   }}
-                  className="btn-3d btn-3d-muted rounded-xl px-4 py-2.5 text-sm font-semibold text-muted-foreground"
+                  className="btn-neu btn-neu-soft rounded-xl px-4 py-2.5 text-sm font-semibold text-muted-foreground"
                 >
                   Limpar
                 </button>
