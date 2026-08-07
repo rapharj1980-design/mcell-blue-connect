@@ -117,10 +117,10 @@ function HeaderLogo() {
   }, []);
 
   return (
-    <div style={{ perspective: "1000px" }}>
+    <div style={{ perspective: "1000px" }} className="flex items-center">
       <a
         href="#topo"
-        className="block font-display text-xl font-extrabold tracking-tight transform-gpu"
+        className="block font-display text-2xl font-extrabold tracking-tight transform-gpu drop-shadow-[0_4px_8px_rgba(45,72,204,0.35)]"
         style={{
           transform: `rotateX(${giro}deg)`,
           transition: "transform 0.2s linear",
