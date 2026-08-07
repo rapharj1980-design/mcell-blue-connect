@@ -70,12 +70,12 @@ function BotaoCarrinho({ className = "" }: { className?: string }) {
         setAberto(true);
       }}
       aria-label="Abrir pedido"
-      className={`btn-3d btn-3d-whatsapp relative inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-whatsapp-foreground ${className}`}
+      className={`btn-neu icon-pulse-parent relative inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold ${className}`}
     >
-      <ShoppingCart className="h-4 w-4" aria-hidden="true" />
-      Meu pedido
+      <ShoppingCart className="h-4 w-4 shrink-0" aria-hidden="true" />
+      <span className="leading-none">Meu pedido</span>
       {totalItens > 0 && (
-        <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground">
+        <span className="absolute -right-1.5 -top-1.5 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[11px] font-bold text-primary-foreground shadow-neu-sm">
           {totalItens}
         </span>
       )}
