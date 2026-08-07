@@ -50,6 +50,12 @@ const diferenciais = [
   { icon: Truck, titulo: "Preço de assistência", texto: "Condições especiais para assistências técnicas e compras em volume." },
 ];
 
+const instrucoes = [
+  { icon: Search, passo: 1, texto: "Navegue pelas seções ou busque o modelo" },
+  { icon: ShoppingCart, passo: 2, texto: "Adicione as peças ao seu pedido" },
+  { icon: MessageCircle, passo: 3, texto: "Finalize direto pelo WhatsApp" },
+];
+
 
 function Index() {
   return (
