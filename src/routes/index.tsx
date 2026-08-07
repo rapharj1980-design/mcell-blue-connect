@@ -371,17 +371,17 @@ function Catalogo() {
       </footer>
 
       {/* Botões flutuantes */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+      <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3">
         <a
           href={waLink("Olá MCell! Quero tirar uma dúvida.")}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Fale conosco pelo WhatsApp"
-          className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-glow transition-transform hover:scale-105"
+          className="btn-neu btn-neu-whatsapp icon-pulse-parent inline-flex h-12 w-12 items-center justify-center !rounded-full"
         >
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
         </a>
-        <BotaoCarrinho className="h-14 shadow-glow" />
+        <BotaoCarrinho className="h-16 !rounded-full px-6 text-base" />
       </div>
 
     </div>
