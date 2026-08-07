@@ -257,25 +257,36 @@ function Catalogo() {
       <main id="catalogo" className="mx-auto max-w-7xl px-4 py-16">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="font-display text-3xl font-extrabold text-foreground sm:text-4xl">
-              Tabela <span className="text-gradient-brand">de preços</span>
+            <h2 className="font-display text-4xl font-extrabold text-primary sm:text-5xl">
+              Tabela de preços
             </h2>
-            <p className="mt-2 max-w-2xl text-muted-foreground">
-              Navegue pelas seções, adicione as peças ao pedido e envie pelo WhatsApp.
-            </p>
+            <span className="mt-3 block h-1 w-40 rounded-full bg-gradient-brand opacity-80" />
           </div>
           <div className="relative w-full md:w-80">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true" />
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" aria-hidden="true" />
             <input
               type="search"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               placeholder="Buscar modelo, marca ou peça..."
               aria-label="Buscar peça na tabela"
-              className="w-full rounded-xl border border-input bg-card py-3 pl-10 pr-4 text-sm text-foreground outline-none transition-shadow placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+              className="neu-inset-field w-full py-4 pl-12 pr-5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
             />
           </div>
         </div>
+
+        <ul className="mt-8 grid gap-4 sm:grid-cols-3">
+          {instrucoes.map(({ icon: Icon, passo, texto }) => (
+            <li key={passo} className="neu-card flex items-center gap-3 p-4">
+              <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-neu-inset">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <p className="text-sm font-semibold text-foreground">
+                <span className="text-primary">{passo}.</span> {texto}
+              </p>
+            </li>
+          ))}
+        </ul>
 
         {secoes.length === 0 && (
           <p className="mt-16 text-center text-muted-foreground">
@@ -286,11 +297,11 @@ function Catalogo() {
         {secoes.map(({ cat, itens }) => (
           <section key={cat} id={slug(cat)} className="mt-16 scroll-mt-32">
             <div className="mb-6 flex items-center gap-4">
-              <h3 className="font-display text-2xl font-bold text-foreground">{cat}</h3>
-              <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+              <h3 className="font-display text-2xl font-bold text-primary">{cat}</h3>
+              <span className="rounded-full bg-background px-3 py-1 text-xs font-semibold text-muted-foreground shadow-neu-sm">
                 {itens.length} itens
               </span>
-              <span className="h-px flex-1 bg-gradient-brand opacity-40" />
+              <span className="h-px flex-1 bg-border" />
             </div>
             <CategoryCarousel itens={itens} />
           </section>
