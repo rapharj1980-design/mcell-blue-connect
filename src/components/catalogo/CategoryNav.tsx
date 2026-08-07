@@ -94,13 +94,13 @@ export function CategoryNav({
         <ChevronLeft className="h-4 w-4" aria-hidden="true" />
       </button>
 
-      <div ref={trackRef} className="nav-track">
+      <div ref={trackRef} className="nav-track glass-panel rounded-2xl px-2 py-1.5 shadow-neu-sm">
         {categorias.map((c) => (
           <a
             key={c}
             href={`#${slug(c)}`}
             onClick={() => playSound("tap")}
-            className="whitespace-nowrap rounded-xl border border-border bg-gradient-soft px-3 py-1.5 text-sm font-semibold text-foreground shadow-card transition-all hover:-translate-y-0.5 hover:bg-gradient-brand hover:text-primary-foreground hover:shadow-glow"
+            className="whitespace-nowrap rounded-xl bg-background px-3.5 py-2 text-sm font-semibold text-primary shadow-neu-sm transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-neu-inset focus-visible:bg-primary focus-visible:text-primary-foreground"
           >
             {c}
           </a>
