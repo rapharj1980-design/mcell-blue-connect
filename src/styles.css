@@ -350,7 +350,7 @@
 }
 
 @utility btn-3d-brand {
-  --btn-base: oklch(0.52 0.20 258);
+  --btn-base: oklch(0.56 0.165 254);
 }
 @utility btn-3d-whatsapp {
   --btn-base: var(--whatsapp);
