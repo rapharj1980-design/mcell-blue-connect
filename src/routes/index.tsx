@@ -164,16 +164,16 @@ function Catalogo() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
+      <header className="glass-panel sticky top-0 z-40 shadow-neu-sm">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 py-3">
           <HeaderLogo />
 
           <CategoryNav categorias={categorias} slug={slug} />
 
 
-          <div className="order-2 ml-auto flex items-center gap-2 md:order-3">
+          <div className="order-2 ml-auto flex items-center gap-2 self-center md:order-3">
             <SoundToggle />
-            <BotaoCarrinho />
+            <BotaoCarrinho className="hidden sm:inline-flex" />
           </div>
 
 
