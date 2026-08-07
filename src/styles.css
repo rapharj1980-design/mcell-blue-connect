@@ -393,11 +393,30 @@
 .carousel-track::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
+.carousel-track {
+  gap: 0.75rem;
+}
 .carousel-track > * {
   flex: 0 0 auto;
-  width: 17rem;
+  /* mobile: ~2,2 cartões visíveis */
+  width: calc((100% - 0.75rem) / 2.2);
+  min-width: 9.5rem;
+}
+@media (min-width: 480px) {
+  .carousel-track > * {
+    /* ~2,6 cartões */
+    width: calc((100% - 1.5rem) / 2.6);
+  }
 }
 @media (min-width: 640px) {
+  .carousel-track {
+    gap: 1.25rem;
+  }
+  .carousel-track > * {
+    width: 17rem;
+  }
+}
+@media (min-width: 1024px) {
   .carousel-track > * {
     width: 19rem;
   }
