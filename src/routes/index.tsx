@@ -268,17 +268,33 @@ function Catalogo() {
             </h2>
             <span className="mt-3 block h-1 w-40 rounded-full bg-gradient-brand opacity-80" />
           </div>
-          <div className="relative w-full md:w-80">
-            <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" aria-hidden="true" />
+          <form
+            role="search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              document.getElementById("catalogo")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="relative w-full md:w-80"
+          >
+            <button
+              type="submit"
+              aria-label="Buscar"
+              onClick={() => playSound("pop")}
+              className="absolute left-3 top-1/2 inline-flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-primary transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <Search className="h-5 w-5" aria-hidden="true" />
+            </button>
             <input
+              id="busca-produtos"
               type="search"
               value={busca}
               onChange={(e) => setBusca(e.target.value)}
               placeholder="Buscar modelo, marca ou peça..."
               aria-label="Buscar peça na tabela"
-              className="neu-inset-field w-full py-4 pl-12 pr-5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
+              className="neu-inset-field w-full py-4 pl-14 pr-5 text-sm text-foreground outline-none placeholder:text-muted-foreground focus:ring-2 focus:ring-ring"
             />
-          </div>
+          </form>
+
         </div>
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-3">
