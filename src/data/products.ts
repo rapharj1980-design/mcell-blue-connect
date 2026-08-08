@@ -21,6 +21,48 @@ export const categorias = [
 
 export const produtos: Produto[] = [
   {
+    "id": 838,
+    "nome": "Tela Motorola EDGE 40 NEO (PREMIUM SEM ARO)",
+    "preco": "R$ 250,00",
+    "descricao": "Linha Edge",
+    "categoria": "Telas Motorola"
+  },
+  {
+    "id": 839,
+    "nome": "Tela Motorola EDGE 50 FUSION/ G85/ G96 (PREMIUM SEM ARO)",
+    "preco": "R$ 260,00",
+    "descricao": "Linha Edge",
+    "categoria": "Telas Motorola"
+  },
+  {
+    "id": 840,
+    "nome": "Tela iPhone 12 (OLED)",
+    "preco": "R$ 250,00",
+    "descricao": "Principal IPHONE",
+    "categoria": "Telas iPhone"
+  },
+  {
+    "id": 841,
+    "nome": "Tela iPhone 13 (OLED)",
+    "preco": "R$ 250,00",
+    "descricao": "Principal IPHONE",
+    "categoria": "Telas iPhone"
+  },
+  {
+    "id": 842,
+    "nome": "Tela iPhone 13 PRO MAX (OLED)",
+    "preco": "R$ 300,00",
+    "descricao": "Principal IPHONE",
+    "categoria": "Telas iPhone"
+  },
+  {
+    "id": 843,
+    "nome": "Tela iPhone 14 PRO MAX (OLED)",
+    "preco": "R$ 350,00",
+    "descricao": "Principal IPHONE",
+    "categoria": "Telas iPhone"
+  },
+  {
     "id": 1,
     "nome": "Tela iPhone 6G",
     "preco": "R$ 60,05",
@@ -5878,47 +5920,5 @@ export const produtos: Produto[] = [
     "preco": "R$ 200,00",
     "descricao": "Conectores de Carga",
     "categoria": "Conectores de Carga"
-  },
-  {
-    "id": 838,
-    "nome": "Tela Motorola EDGE 40 NEO (PREMIUM SEM ARO)",
-    "preco": "R$ 250,00",
-    "descricao": "Linha Edge",
-    "categoria": "Telas Motorola"
-  },
-  {
-    "id": 839,
-    "nome": "Tela Motorola EDGE 50 FUSION/ G85/ G96 (PREMIUM SEM ARO)",
-    "preco": "R$ 260,00",
-    "descricao": "Linha Edge",
-    "categoria": "Telas Motorola"
-  },
-  {
-    "id": 840,
-    "nome": "Tela iPhone 12 (OLED)",
-    "preco": "R$ 250,00",
-    "descricao": "Principal IPHONE",
-    "categoria": "Telas iPhone"
-  },
-  {
-    "id": 841,
-    "nome": "Tela iPhone 13 (OLED)",
-    "preco": "R$ 250,00",
-    "descricao": "Principal IPHONE",
-    "categoria": "Telas iPhone"
-  },
-  {
-    "id": 842,
-    "nome": "Tela iPhone 13 PRO MAX (OLED)",
-    "preco": "R$ 300,00",
-    "descricao": "Principal IPHONE",
-    "categoria": "Telas iPhone"
-  },
-  {
-    "id": 843,
-    "nome": "Tela iPhone 14 PRO MAX (OLED)",
-    "preco": "R$ 350,00",
-    "descricao": "Principal IPHONE",
-    "categoria": "Telas iPhone"
   }
 ];
